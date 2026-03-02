@@ -10,22 +10,22 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 ALLOWED_HOSTS = [
     h.strip()
-    for h in os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+    for h in os.getenv("ALLOWED_HOSTS", "").split(",")
     if h.strip()
 ]
 
 CORS_ALLOWED_ORIGINS = [
     o.strip()
-    for o in os.getenv("DJANGO_CORS_ALLOWED_ORIGINS", "").split(",")
+    for o in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
     if o.strip()
 ]
 
-CORS_ALLOW_CREDENTIALS = False
+CORS_ALLOW_CREDENTIALS = os.getenv("CORS_ALLOW_CREDENTIALS", "False").lower() == "true"
 
 CSRF_TRUSTED_ORIGINS = [
-    f"https://{host}" for host in ALLOWED_HOSTS
-] + [
-    f"http://{host}" for host in ALLOWED_HOSTS
+    o.strip()
+    for o in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+    if o.strip()
 ]
 
 DATABASES = {
