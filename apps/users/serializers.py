@@ -17,3 +17,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email', 'full_name', 'role', 'age', 'avatarka', 'gender')
         read_only_fields = ('username', 'role')
 
+class TokenResponseSerializer(serializers.Serializer):
+    refresh = serializers.CharField(help_text="JWT refresh token")
+    access = serializers.CharField(help_text="JWT access token")
