@@ -1,9 +1,8 @@
 from django.contrib import admin
-from apps.testapp.models import TestModel
+from modeltranslation.admin import TabbedTranslationAdmin
+from .models import TestModel
 
 @admin.register(TestModel)
-class TestModelAdmin(admin.ModelAdmin):
-    list_display = ('title', 'id')
-    search_fields = ('title', 'description')
-
-    
+class TestModelAdmin(TabbedTranslationAdmin):
+    list_display = ('title', 'image', 'file')
+    search_fields = ('title',)

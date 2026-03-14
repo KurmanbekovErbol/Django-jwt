@@ -11,4 +11,4 @@ class TestModelViewSet(viewsets.ModelViewSet):
     queryset = TestModel.objects.all()
     serializer_class = TestModelSerializer
     parser_classes = [MultiPartParser] 
-    permission_classes = [IsAdmin | IsManager | IsTeacher]
+    permission_classes = [IsAdmin | IsManager | IsTeacher | IsStudent]

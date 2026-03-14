@@ -46,8 +46,8 @@ LIBRARY_APPS = [
 
 INSTALLED_APPS = [
     *THEME_APPS,
-    *DJANGO_APPS,
     *LIBRARY_APPS,
+    *DJANGO_APPS,
     *MY_APPS,
 ]
 
